@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "a8262c0a-fdac-4b5e-abab-ad54d53315d1",
+    "Name": "UsrContactAgeViewSQL",
+    "ModifiedOnUtc": "\/Date(1718812833000)\/",
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "UsrContactAgeViewSQL",
+    "DependsOn": []
+  }
+}
