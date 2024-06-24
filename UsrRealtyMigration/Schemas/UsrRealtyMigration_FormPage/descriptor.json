@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "cbc4385b-127b-43a1-b07c-0825e53e11cc",
+    "Name": "UsrRealtyMigration_FormPage",
+    "ModifiedOnUtc": "\/Date(1719239042000)\/",
+    "Parent": {
+      "UId": "3b2e117f-8c6b-4ca5-80a2-7ebb497cddf9",
+      "Name": "PageWithTabsFreedomTemplate"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Realty Migration form page",
+    "DependsOn": []
+  }
+}

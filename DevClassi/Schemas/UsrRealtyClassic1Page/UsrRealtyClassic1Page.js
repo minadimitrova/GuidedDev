@@ -14,7 +14,11 @@ define("UsrRealtyClassic1Page", [], function() {
 			}
 		}/**SCHEMA_DETAILS*/,
 		businessRules: /**SCHEMA_BUSINESS_RULES*/{}/**SCHEMA_BUSINESS_RULES*/,
-		methods: {},
+		methods: {
+          onRunWebServiceButtonClick: function(){
+            
+          }
+        },
 		dataModels: /**SCHEMA_DATA_MODELS*/{}/**SCHEMA_DATA_MODELS*/,
 		diff: /**SCHEMA_DIFF*/[
 			{
@@ -71,6 +75,35 @@ define("UsrRealtyClassic1Page", [], function() {
 				"propertyName": "items",
 				"index": 2
 			},
+           /* Properties to add the custom button to the page. */
+            {
+                /*  Run the operation that inserts the element to the page. */
+                "operation": "insert",
+                /* The meta name of the parent container to add the button. */
+                "parentName": "ProfileContainer",
+                /* Add the button to the element collection of the parent element. */
+                "propertyName": "items",
+                /* The meta name of the added button. */
+                "name": "RunWebServiceButton",
+                /* The properties to pass to the element’s constructor. */
+                "values": {
+                  "layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 3,
+						"layoutName": "ProfileContainer"
+					},
+                    /* Set the type of the added element to ‘button.’ */
+                    "itemType": Terrasoft.ViewItemType.BUTTON,
+                    /* Bind the button title to the localizable schema string. */
+                    "caption": {bindTo: "Resources.Strings.RunWebServiceCaption"},
+                    /* Bind the button click handler method. */
+                    "click": {bindTo: "onRunWebServiceButtonClick"},
+                    /* Bind the button availability property. */
+                    "style": Terrasoft.controls.ButtonEnums.style.BLUE
+                }
+            },
 			{
 				"operation": "insert",
 				"name": "LOOKUPf543d871-3afc-44e3-bbdc-5cec91165615",

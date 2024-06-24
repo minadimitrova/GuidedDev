@@ -1,0 +1,28 @@
+{
+  "MetaData": {
+    "Schema": {
+      "ManagerName": "AddonSchemaManager",
+      "UId": "de8b2c6e-81ed-4fa3-b6d8-b272747c4c87",
+      "A2": "UsrRealtyMigrationRelatedPage",
+      "A5": "6f71e54c-1960-40c9-94f6-073fd67699ab",
+      "B1": [],
+      "B2": [],
+      "B3": [],
+      "B6": "5530927f-22ea-e7c9-4ccf-506d3a6c2ed2",
+      "B8": "0.0.0.0",
+      "AD1": "ec2100ff-3a58-4b6c-87da-e4e0e4dcbc43",
+      "AD2": "EntitySchemaManager",
+      "AD3": "RelatedPage",
+      "AD5": "3a2d6f51-1bfc-4c17-aacb-b53de4866b7c",
+      "AD4": {
+        "Pages": [
+          {
+            "UId": "4759dd8d-efdc-4ba3-9a2b-bcf26903c01a",
+            "PageSchemaUId": "cbc4385b-127b-43a1-b07c-0825e53e11cc",
+            "IsDefault": true
+          }
+        ]
+      }
+    }
+  }
+}
