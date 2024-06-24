@@ -117,11 +117,34 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 			},
 			{
 				"operation": "insert",
-				"name": "UsrNumber",
+				"name": "UsrComissionUSD",
 				"values": {
 					"layoutConfig": {
 						"column": 1,
 						"row": 4,
+						"colSpan": 1,
+						"rowSpan": 1
+					},
+					"type": "crt.NumberInput",
+					"label": "$Resources.Strings.PDS_UsrComissionUSD_7ko03pd",
+					"labelPosition": "auto",
+					"control": "$PDS_UsrComissionUSD_7ko03pd",
+					"visible": true,
+					"readonly": true,
+					"placeholder": "",
+					"tooltip": ""
+				},
+				"parentName": "SideAreaProfileContainer",
+				"propertyName": "items",
+				"index": 3
+			},
+			{
+				"operation": "insert",
+				"name": "UsrNumber",
+				"values": {
+					"layoutConfig": {
+						"column": 1,
+						"row": 5,
 						"colSpan": 1,
 						"rowSpan": 1
 					},
@@ -137,7 +160,7 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 				},
 				"parentName": "SideAreaProfileContainer",
 				"propertyName": "items",
-				"index": 3
+				"index": 4
 			},
 			{
 				"operation": "insert",
@@ -286,6 +309,28 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 				"parentName": "Manager",
 				"propertyName": "listActions",
 				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "CommissionPercent",
+				"values": {
+					"layoutConfig": {
+						"column": 2,
+						"row": 3,
+						"colSpan": 1,
+						"rowSpan": 1
+					},
+					"type": "crt.NumberInput",
+					"label": "$Resources.Strings.PDS_UsrOfferTypeUsrCommissionPercent",
+					"control": "$PDS_UsrOfferTypeUsrCommissionPercent",
+					"readonly": true,
+					"placeholder": "",
+					"labelPosition": "auto",
+					"tooltip": ""
+				},
+				"parentName": "GeneralInfoTabContainer",
+				"propertyName": "items",
+				"index": 4
 			}
 		]/**SCHEMA_VIEW_CONFIG_DIFF*/,
 		viewModelConfigDiff: /**SCHEMA_VIEW_MODEL_CONFIG_DIFF*/[
@@ -303,11 +348,45 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					"PDS_UsrPriceUSD_uaeseig": {
 						"modelConfig": {
 							"path": "PDS.UsrPriceUSD"
+						},
+                      						"validators": {
+
+							"MySuperValidator": {
+
+								"type": "usr.DGValidator",
+
+								"params": {
+
+									"minValue": 50,
+
+									"message": "#ResourceString(PriceCannotBeLess)#"
+
+								}
+
+							}
+
 						}
 					},
 					"PDS_UsrArea_dx8a5aa": {
 						"modelConfig": {
 							"path": "PDS.UsrArea"
+						},
+                      						"validators": {
+
+							"MySuperValidator": {
+
+								"type": "usr.DGValidator",
+
+								"params": {
+
+									"minValue": 10,
+
+									"message": "#ResourceString(AreaCannotBeLess)#"
+
+								}
+
+							}
+
 						}
 					},
 					"PDS_UsrOfferType_emwcdcs": {
@@ -333,6 +412,16 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					"PDS_UsrNumber_7b8tlpt": {
 						"modelConfig": {
 							"path": "PDS.UsrNumber"
+						}
+					},
+					"PDS_UsrComissionUSD_7ko03pd": {
+						"modelConfig": {
+							"path": "PDS.UsrComissionUSD"
+						}
+					},
+					"PDS_UsrOfferTypeUsrCommissionPercent": {
+						"modelConfig": {
+							"path": "PDS.UsrOfferTypeUsrCommissionPercent"
 						}
 					}
 				}
@@ -366,7 +455,13 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					"PDS": {
 						"type": "crt.EntityDataSource",
 						"config": {
-							"entitySchemaName": "UsrRealty"
+							"entitySchemaName": "UsrRealty",
+							"attributes": {
+								"UsrOfferTypeUsrCommissionPercent": {
+									"path": "UsrOfferType.UsrCommissionPercent",
+									"type": "ForwardReference"
+								}
+							}
 						},
 						"scope": "page"
 					}
@@ -392,7 +487,7 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					this.console.log("Price1 = " + price1);
                     this.console.log("Price2 = " + price2);
 
-					request.$context.PDS_UsrArea_glmjgg6 = price1 * 0.2;
+					request.$context.PDS_UsrPriceUSD_uaeseig= price1 * 0.2;
 
 					/* Call the next handler if it exists and return its result. */
 
@@ -400,9 +495,97 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 
 				}
 
-			}
+			},
+          {
+            				request: "crt.HandleViewModelAttributeChangeRequest",
+
+				/* The custom implementation of the system query handler. */
+
+				handler: async (request, next) => {
+
+					if (request.attributeName === 'PDS_UsrPriceUSD_uaeseig' || 				// if price changed
+
+					   request.attributeName === 'PDS_UsrOfferTypeUsrCommissionPercent' ) { 		// or percent changed
+
+						var price = await request.$context.PDS_UsrPriceUSD_uaeseig;
+
+						var percent = await request.$context.PDS_UsrOfferTypeUsrCommissionPercent;
+
+						var commission = price * percent / 100;
+
+						request.$context.PDS_UsrComissionUSD_7ko03pd = commission;
+
+					}
+
+					/* Call the next handler if it exists and return its result. */
+
+					return next?.handle(request);
+
+				}
+          }
         ]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
-		validators: /**SCHEMA_VALIDATORS*/{}/**SCHEMA_VALIDATORS*/
+		validators: /**SCHEMA_VALIDATORS*/{
+          			/* The validator type must contain a vendor prefix.
+
+			Format the validator type in PascalCase. */
+
+			"usr.DGValidator": {
+
+				validator: function (config) {
+
+					return function (control) {
+
+						let value = control.value;
+
+						let minValue = config.minValue;
+
+						let valueIsCorrect = value >= minValue;
+
+						var result;
+
+						if (valueIsCorrect) {
+
+							result = null;
+
+						} else {
+
+							result = {
+
+								"usr.DGValidator": { 
+
+									message: config.message
+
+								}
+
+							};
+
+						}
+
+						return result;
+
+					};
+
+				},
+
+				params: [
+
+					{
+
+						name: "minValue"
+
+					},
+
+					{
+
+						name: "message"
+
+					}
+
+				],
+
+				async: false
+              }
+        }/**SCHEMA_VALIDATORS*/
 	};
 });

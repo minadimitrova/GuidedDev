@@ -6,7 +6,10 @@
 			<Item Name="LocalizableStrings.addRecord_lqp3qyw_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_s1in6ug_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_vvosrpf_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.AreaCannotBeLess.Value" Value="Area cannot be less than 10 sq ft" />
 			<Item Name="LocalizableStrings.Button_e89ziy5_caption.Value" Value="Push me!" />
+			<Item Name="LocalizableStrings.NumberInput_dj52cu9_label.Value" Value="Number" />
+			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Price cannot be less than 50.0" />
 		</Items>
 	</Group>
 </Resources>
