@@ -3,6 +3,8 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Realty list page" />
+			<Item Name="LocalizableStrings.Button_ths1web_caption.Value" Value="Run process" />
+			<Item Name="LocalizableStrings.MenuItem_sj16gda_caption.Value" Value="Menu item" />
 		</Items>
 	</Group>
 </Resources>
