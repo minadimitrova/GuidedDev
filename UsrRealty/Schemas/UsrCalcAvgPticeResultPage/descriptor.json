@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "bb3b635f-8aa6-4a36-8440-7010f9c96366",
+    "Name": "UsrCalcAvgPticeResultPage",
+    "ModifiedOnUtc": "\/Date(1719310494000)\/",
+    "Parent": {
+      "UId": "27e1b215-163a-4b82-b0a6-9872a8dde6e4",
+      "Name": "PageWithTopAreaAndTabsFreedomTemplate"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Calculation result page"
+  }
+}

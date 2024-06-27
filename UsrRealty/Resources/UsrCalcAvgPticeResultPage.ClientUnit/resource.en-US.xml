@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Calculation result page" />
+			<Item Name="LocalizableStrings.NumberInput_f8dnvsb_label.Value" Value="Average price, USD" />
+			<Item Name="LocalizableStrings.RichTextEditor_j5dcrwi_label.Value" Value="SQL text (debug only)" />
+			<Item Name="Parameters.99378312-d6c1-e9ba-7706-7ab273e025cc.Caption" Value="Text 1" />
+			<Item Name="Parameters.a63edecb-5b54-c5c9-1792-1538a459808e.Caption" Value="SQL text (debug)" />
+			<Item Name="Parameters.e94fd504-7faf-e7b2-4424-172a90bede83.Caption" Value="Average price, USD" />
+		</Items>
+	</Group>
+</Resources>
