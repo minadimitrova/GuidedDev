@@ -1,4 +1,4 @@
-define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/()/**SCHEMA_ARGS*/ {
+define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common"]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/(sdk)/**SCHEMA_ARGS*/ {
 	return {
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
 			{
@@ -38,6 +38,41 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 			},
 			{
 				"operation": "insert",
+				"name": "Button_nwmneeh",
+				"values": {
+					"type": "crt.Button",
+					"caption": "#ResourceString(Button_nwmneeh_caption)#",
+					"color": "default",
+					"disabled": false,
+					"size": "large",
+					"iconPosition": "left-icon",
+					"visible": true,
+					"icon": "actions-button-icon",
+					"menuItems": [],
+					"clickMode": "menu"
+				},
+				"parentName": "CardToggleContainer",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "MenuItem_f8acsj4",
+				"values": {
+					"type": "crt.MenuItem",
+					"caption": "#ResourceString(MenuItem_f8acsj4_caption)#",
+					"visible": true,
+					"clicked": {
+						"request": "usr.RunWebServiceButtonRequest"
+					},
+					"icon": "calculator-button-icon"
+				},
+				"parentName": "Button_nwmneeh",
+				"propertyName": "menuItems",
+				"index": 0
+			},
+			{
+				"operation": "insert",
 				"name": "PushMeButton",
 				"values": {
 					"type": "crt.Button",
@@ -55,7 +90,7 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 				},
 				"parentName": "CardToggleContainer",
 				"propertyName": "items",
-				"index": 0
+				"index": 1
 			},
 			{
 				"operation": "insert",
@@ -596,13 +631,6 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 							"width": 176
 						},
 						{
-							"id": "dbf0af75-d2d6-15f7-8c66-137bbbc59f0f",
-							"code": "GridDetail_8o8cjzbDS_UsrManager",
-							"caption": "#ResourceString(GridDetail_8o8cjzbDS_UsrManager)#",
-							"dataValueType": 10,
-							"width": 119
-						},
-						{
 							"id": "7f89e9c0-fd9d-3d0e-2647-734696a2918e",
 							"code": "GridDetail_8o8cjzbDS_UsrComment",
 							"caption": "#ResourceString(GridDetail_8o8cjzbDS_UsrComment)#",
@@ -617,9 +645,9 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 							"width": 131
 						},
 						{
-							"id": "5feaebc0-fc29-f173-b82f-c90c1913ed4c",
-							"code": "GridDetail_8o8cjzbDS_UsrPrentRealty",
-							"caption": "#ResourceString(GridDetail_8o8cjzbDS_UsrPrentRealty)#",
+							"id": "3c4aae56-9910-4beb-133f-76dce4f4cede",
+							"code": "GridDetail_8o8cjzbDS_UsrManager",
+							"caption": "#ResourceString(GridDetail_8o8cjzbDS_UsrManager)#",
 							"dataValueType": 10
 						}
 					],
@@ -728,7 +756,7 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 							"MySuperValidator": {
 								"type": "usr.DGValidator",
 								"params": {
-									"minValue": 50,
+									"minValue": 1,
 									"message": "#ResourceString(PriceCannotBeLess)#"
 								}
 							}
@@ -742,7 +770,7 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 							"MySuperValidator": {
 								"type": "usr.DGValidator",
 								"params": {
-									"minValue": 10,
+									"minValue": 1,
 									"message": "#ResourceString(AreaCannotBeLess)#"
 								}
 							}
@@ -786,7 +814,10 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					"GridDetail_8o8cjzb": {
 						"isCollection": true,
 						"modelConfig": {
-							"path": "GridDetail_8o8cjzbDS"
+							"path": "GridDetail_8o8cjzbDS",
+							"sortingConfig": {
+								"default": []
+							}
 						},
 						"viewModelConfig": {
 							"attributes": {
@@ -800,11 +831,6 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 										"path": "GridDetail_8o8cjzbDS.UsrPotentialCustomer"
 									}
 								},
-								"GridDetail_8o8cjzbDS_UsrManager": {
-									"modelConfig": {
-										"path": "GridDetail_8o8cjzbDS.UsrManager"
-									}
-								},
 								"GridDetail_8o8cjzbDS_UsrComment": {
 									"modelConfig": {
 										"path": "GridDetail_8o8cjzbDS.UsrComment"
@@ -815,9 +841,9 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 										"path": "GridDetail_8o8cjzbDS.CreatedOn"
 									}
 								},
-								"GridDetail_8o8cjzbDS_UsrPrentRealty": {
+								"GridDetail_8o8cjzbDS_UsrManager": {
 									"modelConfig": {
-										"path": "GridDetail_8o8cjzbDS.UsrPrentRealty"
+										"path": "GridDetail_8o8cjzbDS.UsrManager"
 									}
 								},
 								"GridDetail_8o8cjzbDS_Id": {
@@ -894,17 +920,14 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 								"UsrPotentialCustomer": {
 									"path": "UsrPotentialCustomer"
 								},
-								"UsrManager": {
-									"path": "UsrManager"
-								},
 								"UsrComment": {
 									"path": "UsrComment"
 								},
 								"CreatedOn": {
 									"path": "CreatedOn"
 								},
-								"UsrPrentRealty": {
-									"path": "UsrPrentRealty"
+								"UsrManager": {
+									"path": "UsrManager"
 								}
 							}
 						}
@@ -966,7 +989,90 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					return next?.handle(request);
 
 				}
-          }
+          },
+          {
+
+				request: "usr.RunWebServiceButtonRequest",
+
+				/* Implementation of the custom query handler. */
+
+				handler: async (request, next) => {
+
+					this.console.log("Run web service button works...");
+
+ 
+
+					// get id from type lookup type object
+
+					var typeObject = await request.$context.PDS_UsrType_khtvyix;
+
+					var typeId = "";
+
+					if (typeObject) {
+
+						typeId = typeObject.value;
+
+					}
+
+ 
+
+					// get id from type lookup offer type object
+
+					var offerTypeObject = await request.$context.PDS_UsrOfferType_emwcdcs;
+
+					var offerTypeId = "";
+
+					if (offerTypeObject) {
+
+						offerTypeId = offerTypeObject.value;
+
+					}
+                      /* Create an instance of the HTTP client from @creatio-devkit/common. */
+
+					const httpClientService = new sdk.HttpClientService();
+
+ 
+
+					/* Specify the URL to retrieve the current rate. Use the coindesk.com external service. */
+
+					const baseUrl = Terrasoft.utils.uri.getConfigurationWebServiceBaseUrl();
+
+					const transferName = "rest";
+
+					const serviceName = "RealtyService";
+
+					const methodName = "GetMaxPriceByTypeId";
+
+					const endpoint = Terrasoft.combinePath(baseUrl, transferName, serviceName, methodName);
+                  //const endpoint = "http://localhost/D1_Studio/0/rest/RealtyService/GetMaxPriceByTypeId";
+
+					/* Send a POST HTTP request. The HTTP client converts the response body from JSON to a JS object automatically. */
+
+					var params = {
+
+						realtyTypeId: typeId,
+
+						realtyOfferTypeId: offerTypeId,
+
+						entityName: "UsrRealty"
+
+					};
+
+					const response = await httpClientService.post(endpoint, params);
+
+					
+
+					this.console.log("response average price = " + response.body.GetMaxPriceByTypeIdResult);
+
+					
+
+					/* Call the next handler if it exists and return its result. */
+
+					return next?.handle(request);
+
+				}
+
+			}
         ]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,
 		validators: /**SCHEMA_VALIDATORS*/{

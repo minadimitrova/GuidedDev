@@ -25,6 +25,16 @@ namespace Terrasoft.Configuration
                 throw new Exception(message);
 
             }
+          if(price > 10000){
+            if(string.IsNullOrEmpty(realty.GetTypedColumnValue<string>("UsrComment"))){
+              e.IsCanceled = true;
+
+              string messageTemplate = new LocalizableString(realty.UserConnection.ResourceStorage,
+                "UsrRealtyEvents", "LocalizableStrings.CommentMustBeAdd.Value").ToString();
+              string message = string.Format(messageTemplate,"");
+              throw new Exception(message);
+            }
+          }
         }
     }
 }

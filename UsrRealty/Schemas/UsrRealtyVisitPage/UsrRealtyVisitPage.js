@@ -62,7 +62,7 @@ define("UsrRealtyVisitPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 			},
 			{
 				"operation": "insert",
-				"name": "ComboBox_1lb19c1",
+				"name": "ComboBox_y30boaz",
 				"values": {
 					"layoutConfig": {
 						"column": 1,
@@ -71,9 +71,9 @@ define("UsrRealtyVisitPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 						"rowSpan": 1
 					},
 					"type": "crt.ComboBox",
-					"label": "$Resources.Strings.UsrRealtyVisitDS_UsrManager_r2y5k77",
+					"label": "$Resources.Strings.UsrRealtyVisitDS_UsrManager_8l5t3mr",
 					"labelPosition": "above",
-					"control": "$UsrRealtyVisitDS_UsrManager_r2y5k77",
+					"control": "$UsrRealtyVisitDS_UsrManager_8l5t3mr",
 					"listActions": [],
 					"showValueAsLink": true,
 					"controlActions": []
@@ -84,18 +84,18 @@ define("UsrRealtyVisitPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 			},
 			{
 				"operation": "insert",
-				"name": "addRecord_4cavuzu",
+				"name": "addRecord_gbh6ndn",
 				"values": {
 					"code": "addRecord",
 					"type": "crt.ComboboxSearchTextAction",
 					"icon": "combobox-add-new",
-					"caption": "#ResourceString(addRecord_4cavuzu_caption)#",
+					"caption": "#ResourceString(addRecord_gbh6ndn_caption)#",
 					"clicked": {
 						"request": "crt.CreateRecordFromLookupRequest",
 						"params": {}
 					}
 				},
-				"parentName": "ComboBox_1lb19c1",
+				"parentName": "ComboBox_y30boaz",
 				"propertyName": "listActions",
 				"index": 0
 			},
@@ -145,6 +145,16 @@ define("UsrRealtyVisitPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					"UsrRealtyVisitDS_UsrComment_2o3be85": {
 						"modelConfig": {
 							"path": "UsrRealtyVisitDS.UsrComment"
+						}
+					},
+					"UsrRealtyVisitDS_UsrOwner_zv0abft": {
+						"modelConfig": {
+							"path": "UsrRealtyVisitDS.UsrOwner"
+						}
+					},
+					"UsrRealtyVisitDS_UsrManager_8l5t3mr": {
+						"modelConfig": {
+							"path": "UsrRealtyVisitDS.UsrManager"
 						}
 					}
 				}

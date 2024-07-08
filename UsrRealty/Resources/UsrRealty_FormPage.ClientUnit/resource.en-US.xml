@@ -6,8 +6,9 @@
 			<Item Name="LocalizableStrings.addRecord_lqp3qyw_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_s1in6ug_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_vvosrpf_caption.Value" Value="Add new" />
-			<Item Name="LocalizableStrings.AreaCannotBeLess.Value" Value="Area cannot be less than 10 sq ft" />
+			<Item Name="LocalizableStrings.AreaCannotBeLess.Value" Value="Area must be more than 0 sq ft" />
 			<Item Name="LocalizableStrings.Button_e89ziy5_caption.Value" Value="Push me!" />
+			<Item Name="LocalizableStrings.Button_nwmneeh_caption.Value" Value="Actions" />
 			<Item Name="LocalizableStrings.ExpansionPanel_sbuo9bp_title.Value" Value="Realty visit" />
 			<Item Name="LocalizableStrings.GridDetailAddBtn_xy65g5a_caption.Value" Value="New" />
 			<Item Name="LocalizableStrings.GridDetailExportDataBtn_pvkco6y_caption.Value" Value="Export to Excel" />
@@ -15,8 +16,9 @@
 			<Item Name="LocalizableStrings.GridDetailRefreshBtn_wez5ji7_caption.Value" Value="Refresh" />
 			<Item Name="LocalizableStrings.GridDetailSearchFilter_kk723aq_placeholder.Value" Value="Search" />
 			<Item Name="LocalizableStrings.GridDetailSettingsBtn_p9pwteg_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.MenuItem_f8acsj4_caption.Value" Value="Run max price web service" />
 			<Item Name="LocalizableStrings.NumberInput_dj52cu9_label.Value" Value="Number" />
-			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Price cannot be less than 50.0" />
+			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Price must be more than 0.0" />
 		</Items>
 	</Group>
 </Resources>
